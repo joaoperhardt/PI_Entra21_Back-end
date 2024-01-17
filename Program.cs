@@ -15,6 +15,7 @@ namespace PI_Entra21_Back_end
 
             var app = builder.Build();
 
+            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
