@@ -10,8 +10,8 @@ namespace PI_Entra21_Back_end.Repository
     {
         public async Task<UserEntity> GetById(int id)
         {
-            string sql = "SELECT * FROM WHERE Id = @id";
-            return await GetConnection().QueryFirstAsync<UserEntity>(sql);
+            string sql = "SELECT * FROM USER WHERE ID = @id";
+            return await GetConnection().QueryFirstAsync<UserEntity>(sql, new { id });
         }
     }
 }
