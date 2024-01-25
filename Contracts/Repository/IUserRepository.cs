@@ -1,6 +1,9 @@
-﻿namespace PI_Entra21_Back_end.Contracts.Repository
+﻿using PI_Entra21_Back_end.DTO;
+
+namespace PI_Entra21_Back_end.Contracts.Repository
 {
-    public class IUserRepository
+    public interface IUserRepository
     {
+        Task<UserTokenDTO> Login(UserLoginDTO user);
     }
 }
