@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <Compile Remove="Entity\CadastroUserEntity.cs" />
   </ItemGroup>
 
@@ -16,10 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.1.28" />
     <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="Dapper" Version="2.1.28" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
     <PackageReference Include="MySql.Data" Version="8.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
