@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+
+    <Compile Remove="Entity\CadastroUserEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Entity\CadastroUserEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
     <PackageReference Include="Dapper" Version="2.1.28" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
     <PackageReference Include="MySql.Data" Version="8.3.0" />

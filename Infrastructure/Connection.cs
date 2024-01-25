@@ -5,7 +5,7 @@ namespace PI_Entra21_Back_end.Infrastructure
 {
     public class Connection
     {
-        protected string connectionString = "Server=localhost;Database=webuyit_db;User=root;Password=root;";
+        protected string connectionString = "Server=localhost; Database=webuyit_db; User=root; Password=root;";
 
         protected MySqlConnection GetConnection()
         {
