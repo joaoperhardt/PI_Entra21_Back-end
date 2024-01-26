@@ -16,8 +16,9 @@ namespace PI_Entra21_Back_end.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(CadastroUserDTO user)
+        public async Task<IActionResult> Add(CadastroUserDTO user)
         {
+            await _userRepository.Add(user);
             var validator = new CadastroValidator();
 
             var result = validator.Validate(user);
