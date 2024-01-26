@@ -12,8 +12,8 @@ namespace PI_Entra21_Back_end.Repository
         public async Task Add(CadastroUserDTO user)
         {
             string sql = @"
-                INSERT INTO USER(Name, Age, Phone, Cep, Email, Password)
-                    VALUE (@Name, @Age, @Phone, @Cep, @Email, @Password)";
+                INSERT INTO USER(Name, Birthdate, Phone, Cep, Email, Password)
+                    VALUE (@Name, @Birthdate, @Phone, @Cep, @Email, @Password)";
             await Execute(sql, user);
         }
     }
