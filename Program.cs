@@ -5,15 +5,19 @@ using PI_Entra21_Back_end.Contracts.Repository;
 using PI_Entra21_Back_end.Infrastructure;
 using PI_Entra21_Back_end.Repository;
 using System.Text;
+using PI_Entra21_Back_end.Validator;
+using FluentValidation;
+using FluentValidation.Results;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddValidatorsFromAssemblyContaining<CadastroValidator>();
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddTransient<ICadastroUserRepository, CadastroUserRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 builder.Services.AddCors();
