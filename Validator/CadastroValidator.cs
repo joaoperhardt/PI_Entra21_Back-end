@@ -14,7 +14,11 @@ namespace PI_Entra21_Back_end.Validator
 
             RuleFor(c => c.Phone).NotEmpty().Length(11).WithMessage("Telefone deve conter exatamente 11 caracteres.");
 
-            RuleFor(c => c.)
+            RuleFor(c => c.Email).NotEmpty().WithMessage("Você deve preencher o campo e-mail.")
+                .When(c => !string.IsNullOrWhiteSpace(c.Email))
+                .Must(c => c.Contains("@"))
+                .WithMessage("O campo e-mail deve conter o caracter '@'' ");
+
         }
     }
 }
