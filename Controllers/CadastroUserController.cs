@@ -18,7 +18,7 @@ namespace PI_Entra21_Back_end.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(CadastroUserDTO user)
         {
-            await _userRepository.Add(user);
+           
             var validator = new CadastroValidator();
 
             var result = validator.Validate(user);
@@ -30,6 +30,7 @@ namespace PI_Entra21_Back_end.Controllers
                 return BadRequest(error);
             }
 
+            await _userRepository.Add(user);
             return Ok();
         }
 
