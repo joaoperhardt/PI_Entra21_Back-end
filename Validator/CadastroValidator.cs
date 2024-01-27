@@ -24,10 +24,6 @@ namespace PI_Entra21_Back_end.Validator
 
             RuleFor(c => c.BirthDate).NotEmpty().WithMessage("Você deve preencher o campo data de nascimento")
                 .Must(MaiorIdade).WithMessage("Você deve ter pelo menos 18 anos para criar uma conta.");
-
-            
-
-        
         }
         private bool MaiorIdade(DateTime nascimento)
         {
