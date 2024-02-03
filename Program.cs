@@ -1,3 +1,7 @@
+using PI_Entra21_Back_end.Contracts.Repository;
+using PI_Entra21_Back_end.Repository;
+using PI_Entra21_Back_end.Infrastructure;
+
 namespace PI_Entra21_Back_end
 {
     public class Program
@@ -11,8 +15,9 @@ namespace PI_Entra21_Back_end
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddTransient<ICadastroAnuncioRepository, CadastroAnuncioRepository>();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddCors();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -28,6 +33,12 @@ namespace PI_Entra21_Back_end
 
 
             app.MapControllers();
+            app.UseCors(x =>
+            {
+                x.AllowAnyOrigin();
+                x.AllowAnyMethod();
+                x.AllowAnyHeader();
+            });
 
             app.Run();
         }
