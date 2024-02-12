@@ -18,8 +18,6 @@ namespace PI_Entra21_Back_end.Validator
 
             RuleFor(c => c.STREET).NotEmpty().WithMessage("Preencha a rua, por gentileza.");
 
-            RuleFor(c => c.NUMBER).NotEmpty().WithMessage("Preencha o número de sua residencia/comércio, caso não possua coloque 000");
-
             RuleFor(c => c.COMPLEMENT).NotEmpty().WithMessage("Adicione um complemento");
 
             RuleFor(c => c.PHONE).NotEmpty().Length(11).WithMessage("Telefone deve conter exatamente 11 caracteres.");
