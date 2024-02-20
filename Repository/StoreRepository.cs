@@ -12,8 +12,8 @@ namespace PI_Entra21_Back_end.Repository
         public async Task AddStore(StoreDTO store)
         {
             string sql = @"
-                INSERT INTO STORE (Name,cnpj, Description,Cep,City_Id, District, Street, Number, Complement, Phone, Cpf)
-                    VALUE (@Name,@cnpj, @Description,@Cep,@City_Id, @District, @Street, @Number, @Complement, @Phone,@Cpf)";
+                INSERT INTO STORE (Name,cnpj, Description,Cep, District, Street, Number, Complement, Phone, Cpf)
+                    VALUE (@Name,@cnpj, @Description,@Cep, @District, @Street, @Number, @Complement, @Phone,@Cpf)";
             await Execute(sql, store);
 
         }

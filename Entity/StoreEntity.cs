@@ -12,13 +12,11 @@
 
         public string CEP { get; set; }
 
-        public int CITY_Id { get; set; }
-
         public string DISTRICT { get; set; }
 
         public string STREET { get; set; }
 
-        public string NUMBER { get; set; }
+        public int NUMBER { get; set; }
 
         public string COMPLEMENT { get; set; }
 
