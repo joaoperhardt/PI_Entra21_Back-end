@@ -5,17 +5,23 @@ using PI_Entra21_Back_end.Contracts.Repository;
 using PI_Entra21_Back_end.Infrastructure;
 using PI_Entra21_Back_end.Repository;
 using System.Text;
+using PI_Entra21_Back_end.Validator;
+using FluentValidation;
+using FluentValidation.Results;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddValidatorsFromAssemblyContaining<StoreValidator>();
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IStoreRepository, StoreRepository>();
+
 
 builder.Services.AddCors();
 
@@ -79,6 +85,17 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+app.UseAuthorization();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
 app.UseAuthorization();
 
 app.MapControllers();
