@@ -2,7 +2,7 @@
 using PI_Entra21_Back_end.DTO;
 namespace PI_Entra21_Back_end.Validator
 {
-    public class CadastroValidator : AbstractValidator<CadastroUserDTO>
+    public class CadastroValidator : AbstractValidator<UserDTO>
     {
         public CadastroValidator() 
         {

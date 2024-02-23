@@ -14,7 +14,7 @@ namespace PI_Entra21_Back_end.Controllers
                 return BadRequest();
 
             List<byte[]> data = new();
-            string uploads = Path.Combine("C:\\Users\\João Pedro\\Desktop\\tetse");
+            string uploads = Path.Combine("C:\\Users\\joao.erhardt\\OneDrive - SENAC-SC\\Área de Trabalho");
             string filePath = "";
 
             foreach (IFormFile formFile in file)

@@ -16,6 +16,13 @@ namespace PI_Entra21_Back_end.Controllers
             _userRepository = userRepository;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Add(UserDTO user)
+        {
+            await _userRepository.Add(user);
+            return Ok();
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

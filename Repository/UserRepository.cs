@@ -9,6 +9,14 @@ namespace PI_Entra21_Back_end.Repository
 {
     public class UserRepository : Connection, IUserRepository
     {
+        public async Task Add(UserDTO user)
+        {
+            string sql = @"
+                INSERT INTO USER(Name, Age, Phone, Cep, Email, Password)
+                    VALUE (@Name, @Age, @Phone, @Cep, @Email, @Password)";
+            await Execute(sql, user);
+        }
+
         public async Task<UserEntity> GetById(int id)
         {
             string sql = "SELECT * FROM USER WHERE ID = @id";
