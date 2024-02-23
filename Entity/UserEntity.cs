@@ -8,5 +8,7 @@
         public string? Cep { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
+        public string File { get; set; }
+        public int Payment_Method_Id { get; set; }
     }
 }
