@@ -12,6 +12,7 @@ using FluentValidation.Results;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddValidatorsFromAssemblyContaining<StoreValidator>();
 builder.Services.AddControllers();
 
