@@ -14,6 +14,10 @@ namespace PI_Entra21_Back_end.Repository
         {
             string sql = "SELECT * FROM USER WHERE EMAIL = @Email AND PASSWORD = @Password";
             UserEntity userLogin = await GetConnection().QueryFirstAsync<UserEntity>(sql, user);
+            if (userLogin == null)
+            {
+                throw new Exception();
+            }
             return new UserTokenDTO
             {
                 Token = Authentication.GenerateToken(userLogin),
