@@ -58,7 +58,7 @@ namespace PI_Entra21_Back_end.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(UserEntity user)
+        public async Task<IActionResult> Update(UserUpdateDTO user)
         {
             await _userRepository.Update(user);
             return Ok(user);
