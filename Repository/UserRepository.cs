@@ -36,9 +36,9 @@ namespace PI_Entra21_Back_end.Repository
                 User = userLogin
             };
         }
-        public async Task Update(UserEntity user)
+        public async Task Update(UserUpdateDTO user)
         {
-            string sql = @"UPDATE USER SET NAME=@Name, CEP=@Cep, EMAIL=@Email, FILE=@File WHERE ID=@Id";
+            string sql = @"UPDATE USER SET NAME=@Name, CEP=@Cep, EMAIL=@Email WHERE ID=@Id";
             await Execute(sql, user);
         }
     }

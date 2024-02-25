@@ -11,7 +11,7 @@ namespace PI_Entra21_Back_end.Contracts.Repository
 
         Task<UserTokenDTO> LogIn(UserLoginDTO user);
 
-        Task Update(UserEntity user);
+        Task Update(UserUpdateDTO user);
 
     }
 }
