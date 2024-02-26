@@ -9,6 +9,8 @@
 
   <ItemGroup>
 
+    <Compile Remove="Contracts\Repository\IpaymentmethodRe.cs" />
+
     <Compile Remove="Entity\StoreEntity.cs" />
   </ItemGroup>
 
