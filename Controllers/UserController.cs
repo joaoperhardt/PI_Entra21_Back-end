@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using PI_Entra21_Back_end.Contracts.Repository;
 using PI_Entra21_Back_end.DTO;
 using PI_Entra21_Back_end.Entity;
+using PI_Entra21_Back_end.Validator;
+
 
 namespace PI_Entra21_Back_end.Controllers
 {
@@ -10,10 +12,29 @@ namespace PI_Entra21_Back_end.Controllers
     [Route("user")]
     public class UserController : ControllerBase
     {
+
         private readonly IUserRepository _userRepository;
         public UserController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(UserDTO user)
+        {
+            var validator = new CadastroValidator();
+
+            var result = validator.Validate(user);
+
+            var error = result.Errors.Select(e => e.ErrorMessage);
+
+            if (!result.IsValid)
+            {
+                return BadRequest(error);
+            }
+
+            await _userRepository.Add(user);
+            return Ok();
         }
 
         [HttpGet("{id}")]
@@ -37,7 +58,7 @@ namespace PI_Entra21_Back_end.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(UserEntity user)
+        public async Task<IActionResult> Update(UserUpdateDTO user)
         {
             await _userRepository.Update(user);
             return Ok(user);
